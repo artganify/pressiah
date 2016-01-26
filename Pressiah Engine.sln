@@ -18,6 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "manifest", "manifest", "{CE
 		manifest\SharedAssemblyInfo.cs = manifest\SharedAssemblyInfo.cs
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "util", "util", "{3D97587D-CA2C-45A0-8C6F-78578FA741E1}"
+	ProjectSection(SolutionItems) = preProject
+		util\_guard.cs = util\_guard.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,5 +39,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{CE826686-1DC6-4682-9133-B62326A53035} = {9A6479BC-D66C-4145-B11F-E9FEDA427063}
+		{3D97587D-CA2C-45A0-8C6F-78578FA741E1} = {9A6479BC-D66C-4145-B11F-E9FEDA427063}
 	EndGlobalSection
 EndGlobal

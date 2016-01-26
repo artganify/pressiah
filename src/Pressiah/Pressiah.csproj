@@ -38,6 +38,35 @@
     <Compile Include="..\..\manifest\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="..\..\util\_guard.cs">
+      <Link>Properties\_guard.cs</Link>
+    </Compile>
+    <Compile Include="Configuration\IConfigurationSource.cs" />
+    <Compile Include="Configuration\YamlFileConfigurationSource.cs" />
+    <Compile Include="Core\ComparableExtensions.cs" />
+    <Compile Include="Core\ComponentBase.cs" />
+    <Compile Include="Core\IComponent.cs" />
+    <Compile Include="Diagnostics\Logging\Configuration\LoggerBuilder.cs" />
+    <Compile Include="Diagnostics\Logging\ILogger.cs" />
+    <Compile Include="Diagnostics\Logging\Internal\Logger.cs" />
+    <Compile Include="Diagnostics\Logging\Internal\NullLogger.cs" />
+    <Compile Include="Diagnostics\Logging\Log.cs" />
+    <Compile Include="Diagnostics\Logging\LogEvent.cs" />
+    <Compile Include="Diagnostics\Logging\LogEventLevel.cs" />
+    <Compile Include="Diagnostics\Logging\Targets\ConsoleLogTarget.cs" />
+    <Compile Include="Diagnostics\Logging\Targets\FileLogTarget.cs" />
+    <Compile Include="Diagnostics\Logging\Targets\ILogTarget.cs" />
+    <Compile Include="Entities\Components\IEntityComponent.cs" />
+    <Compile Include="Entities\EntityEqualityComparer.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\IEntityEqualityComparer.cs" />
+    <Compile Include="Entities\IIdentifiable.cs" />
+    <Compile Include="Entities\Priority.cs" />
+    <Compile Include="Game\IContentable.cs" />
+    <Compile Include="Game\IGameSystem.cs" />
+    <Compile Include="Game\IRenderable.cs" />
+    <Compile Include="Game\IUpdateable.cs" />
+    <Compile Include="Primitives\RectangleF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -49,10 +78,16 @@
       <HintPath>..\..\packages\MonoGame.Framework.WindowsGL.3.4.0.459\lib\net40\OpenTK.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="YamlDotNet, Version=3.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Buttonica\Source\packages\YamlDotNet.3.7.0\lib\net35\YamlDotNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
