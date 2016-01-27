@@ -3,9 +3,9 @@
 namespace Pressiah.Core.Collections
 {
     /// <summary>
-    ///     Event arguments used to indicate a change within a <see cref="TrackingCollection{T}"/>
+    ///     Event arguments used to indicate a change within a <see cref="ITrackableCollection{T}"/>
     /// </summary>
-    public class TrackingCollectionChangedEventArgs<T> : EventArgs
+    public class TrackableCollectionChangedEventArgs<T> : EventArgs
     {
 
         /// <summary>
@@ -14,11 +14,11 @@ namespace Pressiah.Core.Collections
         public T Item { get; }
 
         /// <summary>
-        ///     Creates a new <see cref="TrackingCollectionChangedEventArgs{T}"/>, specifying the item affected by the change
+        ///     Creates a new <see cref="TrackableCollectionChangedEventArgs{T}"/>, specifying the item affected by the change
         /// </summary>
-        public TrackingCollectionChangedEventArgs(T item)
+        public TrackableCollectionChangedEventArgs(T item)
         {
-            Item    = item;
+            Item = item;
         } 
 
     }

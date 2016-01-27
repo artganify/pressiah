@@ -14,6 +14,8 @@ namespace Pressiah.Entities.Components
     public interface IEntityComponent : IComponent
     {
 
+
+
     }
 
 }

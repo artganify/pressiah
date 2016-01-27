@@ -14,8 +14,6 @@ namespace Pressiah.Game
     public interface IGameSystem : IComponent
     {
 
-        
-
     }
 
 }

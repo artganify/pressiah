@@ -7,18 +7,22 @@ using System.Threading.Tasks;
 
 namespace Pressiah.Core.Collections
 {
-    public class TrackingCollection<T> : Collection<T>
+
+    /// <summary>
+    ///     Represents a simple trackable collection
+    /// </summary>
+    public class TrackingCollection<T> : Collection<T>, ITrackableCollection<T>
     {
 
         /// <summary>
         ///     Invoked when an item has been added to the collection
         /// </summary>
-        public event EventHandler<TrackingCollectionItemAddedEventArgs<T>> ItemAdded;
+        public event EventHandler<TrackableCollectionChangedEventArgs<T>> ItemAdded;
 
         /// <summary>
         ///     Invoked when an item has been removed from the collection
         /// </summary>
-        public event EventHandler<TrackingCollectionChangedEventArgs<T>> ItemRemoved;
+        public event EventHandler<TrackableCollectionChangedEventArgs<T>> ItemRemoved;
 
         /// <summary>
         ///     Adds a range of elements to the current collection
@@ -47,7 +51,7 @@ namespace Pressiah.Core.Collections
 
             foreach(var removedItem in itemsToRemove)
                 ItemRemoved?.Invoke(this, 
-                new TrackingCollectionChangedEventArgs<T>(removedItem));
+                new TrackableCollectionChangedEventArgs<T>(removedItem));
         }
 
         /// <summary>
@@ -56,7 +60,7 @@ namespace Pressiah.Core.Collections
         protected override void InsertItem(int index, T item)
         {
             base.InsertItem(index, item);
-            ItemAdded?.Invoke(this, new TrackingCollectionItemAddedEventArgs<T>(index, item));
+            ItemAdded?.Invoke(this, new TrackableCollectionChangedEventArgs<T>(item));
         }
 
         /// <summary>
@@ -70,7 +74,7 @@ namespace Pressiah.Core.Collections
             }
 
             base.RemoveItem(index);
-            ItemRemoved?.Invoke(this, new TrackingCollectionChangedEventArgs<T>(itemToRemove));
+            ItemRemoved?.Invoke(this, new TrackableCollectionChangedEventArgs<T>(itemToRemove));
         }
 
         /// <summary>
@@ -85,8 +89,8 @@ namespace Pressiah.Core.Collections
 
             base.SetItem(index, item);
 
-            ItemRemoved?.Invoke(this, new TrackingCollectionChangedEventArgs<T>(itemToReplace));
-            ItemAdded?.Invoke(this, new TrackingCollectionItemAddedEventArgs<T>(index, item));
+            ItemRemoved?.Invoke(this, new TrackableCollectionChangedEventArgs<T>(itemToReplace));
+            ItemAdded?.Invoke(this, new TrackableCollectionChangedEventArgs<T>(item));
         }
 
         /// <summary>
